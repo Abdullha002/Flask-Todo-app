@@ -83,12 +83,6 @@ flask-todo-auth/
 
 ---
 
-## 📸 Screenshots
-
-> You can include screenshots of your app here for better presentation.
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License - feel free to use and modify!
@@ -102,11 +96,3 @@ Want to improve this app?
 - Use JavaScript for animations
 - Switch to PostgreSQL or MySQL for production
 - Deploy on Render, Heroku, or Vercel
-
----
-
-## 👤 Author
-
-**Abdullha Mulla**  
-📧 abdullahmulla002@gmail.com  
-📱 9986366573
