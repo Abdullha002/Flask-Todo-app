@@ -1,0 +1,43 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+
+<body>
+    <div class="logout">
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <h1>Todo List Flask</h1>
+    <form class="input-container" action="{{ url_for('home') }}" method="POST">
+        <input type="text" placeholder="Enter todo" id="input-todo" name="name">
+        <button id="add-todo">+</button>
+    </form>
+    <h2>Todos</h2>
+    <div class="todo-container">
+        {% for todo in todos %}
+        <div class="todo">
+            <p {% if todo.checked %}style="text-decoration: line-through; color: gray;"{% endif %}>{{ todo.name }}</p>
+            <div class="actions">
+                <form action="{{ url_for('checked', todo_id=todo.id) }}" method="POST">
+                    <input type="checkbox" name="checked" onchange="this.form.submit()" {% if todo.checked %}checked{% endif %}>
+                </form>
+                <form action="{{ url_for('delete', todo_id=todo.id) }}" method="POST">
+                    <button>Delete</button>
+                </form>
+                <form action="{{ url_for('update', todo_id=todo.id) }}" method="GET">
+                    <button class="update-btn">Edit</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
